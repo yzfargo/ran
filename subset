@@ -1,0 +1,19 @@
+def subsets_identifier(input_set):
+    input_list = list(input_set)
+    num_elements = len(input_list)
+    
+    all_subsets = []
+    
+    for i in range(2 ** num_elements):
+        subset = [input_list[j] for j in range(num_elements) if (i & (1 << j)) > 0]
+        all_subsets.append(subset)
+    
+    print(f"Number of elements in the set: {num_elements}")
+    print(f"Number of subsets: {len(all_subsets)}")
+    
+    for i, subset in enumerate(all_subsets):
+        print(f"Subset {i + 1}: {subset}")
+
+# Example usage:
+input_set = {2, 4, 6, 9}
+subsets_identifier(input_set)
